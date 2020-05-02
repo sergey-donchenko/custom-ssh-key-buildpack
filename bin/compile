@@ -31,7 +31,13 @@ if [[ -f $ENV_DIR/CUSTOM_SSH_KEY && -f $ENV_DIR/CUSTOM_SSH_KEY_HOSTS ]]; then
             "  UserKnownHostsFile=/dev/null\n"\
             "  StrictHostKeyChecking no"\
             >> ~/.ssh/config
+
+    echo $element
+
+    echo $element >> ~/.ssh/known_hosts
   done
+
+  chmod 777 ~/.ssh/known_hosts
 
   echo "-----> Successfully added custom SSH key"
 
